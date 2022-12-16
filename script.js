@@ -11,11 +11,10 @@ function animationLoop () {
 
     ctx.drawImage(img, x, y, canvas.width, canvas.height)
 
-    window.requestAnimationFrame(animationLoop)
 }
 
 function main() {
-    window.requestAnimationFrame(animationLoop)
+    setInterval(animationLoop,160)
 }
 
 main()

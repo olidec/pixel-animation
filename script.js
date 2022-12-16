@@ -10,18 +10,19 @@ let pos = 0
 let animType = 0
 let frameCounter = 0
 let interval = null
+let size = 64
 
 function animationLoop () {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
 
     ctx.drawImage(img,
-        pos * 64, animType * 64 ,64,64, 
+        pos * size, animType * size ,size,size, 
             x, y, canvas.width, canvas.height)
     
     frameCounter++
     if (frameCounter >= 1) {
         pos++
-        if (pos >= 9) {pos = 0}
+        if (pos >= 3) {pos = 0}
         frameCounter = 0
     }
     // if (running) {

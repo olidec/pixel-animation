@@ -15,13 +15,13 @@ function animationLoop () {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
 
     ctx.drawImage(img,
-        pos * 32, animType *32 ,32,32, 
+        pos * 64, animType * 64 ,64,64, 
             x, y, canvas.width, canvas.height)
     
     frameCounter++
     if (frameCounter >= 1) {
         pos++
-        if (pos >= 3) {pos = 0}
+        if (pos >= 9) {pos = 0}
         frameCounter = 0
     }
     // if (running) {

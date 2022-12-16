@@ -7,8 +7,9 @@ let x = 0
 let y = 0
 
 let pos = 0
-let animType = 0;
+let animType = 0
 let frameCounter = 0
+let interval = null
 
 function animationLoop () {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
@@ -23,12 +24,20 @@ function animationLoop () {
         if (pos >= 3) {pos = 0}
         frameCounter = 0
     }
-    // window.requestAnimationFrame(animationLoop)
+    // if (running) {
+        // window.requestAnimationFrame(animationLoop)
+        // }
 }
+
+// function start() {
+//     running = true
+//     window.requestAnimationFrame(animationLoop)
+
+// }
 
 function main() {
     // window.requestAnimationFrame(animationLoop)
-    setInterval(animationLoop,120)
+    interval = setInterval(animationLoop,120)
 }
 
 window.onkeydown = function(event) {
@@ -37,6 +46,15 @@ window.onkeydown = function(event) {
     if (event.code === "KeyS") {animType = 0}
     if (event.code === "KeyA") {animType = 1}
     if (event.code === "KeyD") {animType = 2}
+    if (event.code === "Space") {
+        if (interval === null) {
+            interval = setInterval(animationLoop,120)
+        }
+        else {
+            clearInterval(interval)
+            interval = null
+        }
+    }
 }
 
 main()
